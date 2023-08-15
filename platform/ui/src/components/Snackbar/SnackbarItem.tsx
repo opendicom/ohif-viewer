@@ -54,7 +54,7 @@ const SnackbarItem = ({ options, onClose }) => {
         </div>
         <div
           onClick={handleClose}
-          className="w-5 h-5 rounded-full flex items-center justify-center self-start ml-auto relative left-[3px] top-[-3px] text-[#0944b3]"
+          className="w-5 h-5 rounded-full flex items-center justify-center self-start ml-auto relative left-[3px] top-[-3px] text-[#743ad5]"
         >
           <Icon name="close" className="text-black" />
         </div>

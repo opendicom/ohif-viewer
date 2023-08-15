@@ -41,72 +41,70 @@ const InputRange: React.FC<{
   labelPosition = '',
   trackColor,
 }) => {
-  const [rangeValue, setRangeValue] = useState(value);
+    const [rangeValue, setRangeValue] = useState(value);
 
-  // Allow for the value property to update the range value.
-  useEffect(() => setRangeValue(value), [value]);
+    // Allow for the value property to update the range value.
+    useEffect(() => setRangeValue(value), [value]);
 
-  const handleChange = useCallback(
-    e => {
-      const rangeValue = Number(e.target.value);
-      setRangeValue(rangeValue);
-      onChange(rangeValue);
-    },
-    [onChange, setRangeValue]
-  );
+    const handleChange = useCallback(
+      e => {
+        const rangeValue = Number(e.target.value);
+        setRangeValue(rangeValue);
+        onChange(rangeValue);
+      },
+      [onChange, setRangeValue]
+    );
 
-  const rangeValuePercentage =
-    ((rangeValue - minValue) / (maxValue - minValue)) * 100;
+    const rangeValuePercentage =
+      ((rangeValue - minValue) / (maxValue - minValue)) * 100;
 
-  const rangeValueForStr =
-    step >= 1 ? rangeValue.toFixed(0) : rangeValue.toFixed(1);
+    const rangeValueForStr =
+      step >= 1 ? rangeValue.toFixed(0) : rangeValue.toFixed(1);
 
-  return (
-    <div
-      className={`flex items-center cursor-pointer space-x-1 ${
-        containerClassName ? containerClassName : ''
-      }`}
-    >
-      {showLabel && labelPosition === 'left' && (
-        <Typography
-          variant={labelVariant ?? 'subtitle'}
-          component="p"
-          className={classNames('w-8', labelClassName ?? 'text-white')}
-        >
-          {rangeValueForStr}
-          {unit}
-        </Typography>
-      )}
-      <input
-        type="range"
-        min={minValue}
-        max={maxValue}
-        value={rangeValue}
-        className={`appearance-none h-[3px] rounded-lg input-range-thumb-design ${
-          inputClassName ? inputClassName : ''
-        }`}
-        style={{
-          background:
-            trackColor ||
-            `linear-gradient(to right, #5acce6 0%, #5acce6 ${rangeValuePercentage -
+    return (
+      <div
+        className={`flex items-center cursor-pointer space-x-1 ${containerClassName ? containerClassName : ''
+          }`}
+      >
+        {showLabel && labelPosition === 'left' && (
+          <Typography
+            variant={labelVariant ?? 'subtitle'}
+            component="p"
+            className={classNames('w-8', labelClassName ?? 'text-white')}
+          >
+            {rangeValueForStr}
+            {unit}
+          </Typography>
+        )}
+        <input
+          type="range"
+          min={minValue}
+          max={maxValue}
+          value={rangeValue}
+          className={`appearance-none h-[3px] rounded-lg input-range-thumb-design ${inputClassName ? inputClassName : ''
+            }`}
+          style={{
+            background:
+              trackColor ||
+              `linear-gradient(to right, #ff55c1 0%, #ff55c1 ${rangeValuePercentage -
               10}%, #3a3f99 ${rangeValuePercentage + 10}%, #3a3f99 100%)`,
-        }}
-        onChange={handleChange}
-        id="myRange"
-        step={step}
-      />
-      {showLabel && (!labelPosition || labelPosition === 'right') && (
-        <Typography
-          variant={labelVariant ?? 'subtitle'}
-          component="p"
-          className={classNames('w-8', labelClassName ?? 'text-white')}
-        >
-          {rangeValueForStr}
-          {unit}
-        </Typography>
-      )}
-    </div>
-  );
-};
+          }}
+          onChange={handleChange}
+          id="myRange"
+          step={step}
+        />
+        {showLabel && (!labelPosition || labelPosition === 'right') && (
+          <Typography
+            variant={labelVariant ?? 'subtitle'}
+            component="p"
+            className={classNames('w-8', labelClassName ?? 'text-white')}
+          >
+            {rangeValueForStr}
+            {unit}
+          </Typography>
+        )}
+      </div>
+    );
+  };
 
 export default InputRange;
