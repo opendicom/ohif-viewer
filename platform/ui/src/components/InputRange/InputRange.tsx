@@ -86,7 +86,7 @@ const InputRange: React.FC<{
           style={{
             background:
               trackColor ||
-              `linear-gradient(to right, #ff55c1 0%, #ff55c1 ${rangeValuePercentage -
+              `linear-gradient(to right, #ff5dc4 0%, #ff5dc4 ${rangeValuePercentage -
               10}%, #3a3f99 ${rangeValuePercentage + 10}%, #3a3f99 100%)`,
           }}
           onChange={handleChange}

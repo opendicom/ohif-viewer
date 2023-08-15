@@ -1,4 +1,19 @@
 window.config = {
+  // Hide OHIF logo
+  whiteLabeling: {
+    createLogoComponentFn: function (React) {
+      return React.createElement(
+        'a',
+        {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          className: 'text-white underline',
+          href: 'http://radicalimaging.com',
+        },
+        React.createElement('h5', {}, '')
+      );
+    },
+  },
   routerBasename: '/',
   // whiteLabeling: {},
   extensions: [],

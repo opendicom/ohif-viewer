@@ -40,16 +40,16 @@ module.exports = {
       },
 
       primary: {
-        light: '#ff55c1',
+        light: '#ff5dc4',
         main: '#743ad5',
         dark: '#1e1e2f',
-        active: '#348cfd',
+        active: '#dd31ff',
       },
 
       inputfield: {
         main: '#3a3f99',
         disabled: '#2b166b',
-        focus: '#ff55c1',
+        focus: '#ff5dc4',
         placeholder: '#39383f',
       },
 

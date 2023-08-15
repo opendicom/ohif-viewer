@@ -32,7 +32,7 @@ function LayoutSelector({ onSelection, rows, columns }) {
             key={index}
             style={{
               border: '1px solid white',
-              backgroundColor: isHovered(index) ? '#ff55c1' : '#0b1a42',
+              backgroundColor: isHovered(index) ? '#ff5dc4' : '#0b1a42',
             }}
             className="cursor-pointer"
             onClick={() => {
