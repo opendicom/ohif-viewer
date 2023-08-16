@@ -57,8 +57,20 @@ function createDicomJSONApi(dicomJsonConfig) {
         });
       }
 
-      const response = await fetch(url);
-      let data = await response.json();
+      // TODO: i18n
+      let data = await fetch(url)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error(response.status.toString());
+        })
+        .catch(error => {
+          alert(
+            'Lo siento, hubo un error al descargar el estudio.\nIntentelo mas tarde o contacte al administrador del sistema.'
+          );
+          console.log(error);
+        });
 
       const studyInstanceUIDs = data.studies.map(
         study => study.StudyInstanceUID
