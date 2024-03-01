@@ -62,6 +62,7 @@ export default async function init({
       preferSizeOverAccuracy: Boolean(appConfig.use16BitDataType),
       useNorm16Texture: Boolean(appConfig.use16BitDataType),
     },
+    detectGPUConfig: { benchmarksURL: '../../../node_modules/detect-gpu/dist/benchmarks' },
   });
 
   // For debugging e2e tests that are failing on CI
@@ -308,8 +309,8 @@ export default async function init({
   viewportGridService.subscribe(
     viewportGridService.EVENTS.ACTIVE_VIEWPORT_ID_CHANGED,
     activeViewportEventListener
-      );
-    }
+  );
+}
 
 function CPUModal() {
   return (
