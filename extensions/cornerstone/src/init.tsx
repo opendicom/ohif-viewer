@@ -62,7 +62,7 @@ export default async function init({
       preferSizeOverAccuracy: Boolean(appConfig.use16BitDataType),
       useNorm16Texture: Boolean(appConfig.use16BitDataType),
     },
-    detectGPUConfig: { benchmarksURL: '../../../node_modules/detect-gpu/dist/benchmarks' },
+    detectGPUConfig: { benchmarksURL: 'assets/detect-gpu/benchmarks' },
   });
 
   // For debugging e2e tests that are failing on CI
